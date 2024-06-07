@@ -1,4 +1,4 @@
-name: Daily runing bot
+name: Daily running bot
 
 on: 
   schedule:
@@ -17,10 +17,16 @@ jobs:
       with:
         python-version: 3.x
 
-    - name: Install dependencies
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python3-dev
+
+    - name: Install Python dependencies
       run: |
         pip install aiogram
 
     - name: Run script
       run: |
         python telegram_bot.py
+
