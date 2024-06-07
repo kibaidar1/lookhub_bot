@@ -26,10 +26,17 @@ jobs:
       run: |
         pip install --upgrade pip setuptools
 
-    - name: Install Python dependencies
+    - name: Set up virtual environment
       run: |
+        python -m venv venv
+        source venv/bin/activate
+
+    - name: Install Python dependencies in virtual environment
+      run: |
+        source venv/bin/activate
         pip install aiogram
 
     - name: Run script
       run: |
+        source venv/bin/activate
         python telegram_bot.py
