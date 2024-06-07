@@ -20,13 +20,16 @@ jobs:
     - name: Install system dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y python3-dev
-        
+        sudo apt-get install -y python3-dev libssl-dev libffi-dev
+
+    - name: Upgrade pip and setuptools
+      run: |
+        pip install --upgrade pip setuptools
+
     - name: Install Python dependencies
       run: |
-         pip install aiogram==2.15
+        pip install aiogram
 
     - name: Run script
       run: |
         python telegram_bot.py
-
