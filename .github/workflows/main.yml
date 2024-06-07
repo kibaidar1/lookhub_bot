@@ -19,7 +19,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install aiogram=3.1.1
+        pip install aiogram
 
     - name: Run script
       run: |
