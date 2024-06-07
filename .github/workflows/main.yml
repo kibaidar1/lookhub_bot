@@ -21,10 +21,10 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y python3-dev
-
+        
     - name: Install Python dependencies
       run: |
-        pip install aiogram
+         pip install aiogram==2.15
 
     - name: Run script
       run: |
