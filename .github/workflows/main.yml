@@ -12,10 +12,19 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Build Docker image
-      run: |
-        docker build -t telegram-bot .
+    - name: setup python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
 
-    - name: Run Docker container
+    - name: install python packages
       run: |
-        docker run telegram-bot
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: execute py script # run main.py
+      env:
+        API_TOKEN: ${{ secrets.API_TOKEN }}
+        CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
+        BACKEND_URL: ${{ secrets.BACKEND_URL }}
+      run: python main.py
