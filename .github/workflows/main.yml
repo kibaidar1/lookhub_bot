@@ -27,4 +27,4 @@ jobs:
         API_TOKEN: ${{ secrets.API_TOKEN }}
         CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
         BACKEND_URL: ${{ secrets.BACKEND_URL }}
-      run: python main.py
+      run: python telegram_bot.py
