@@ -2,7 +2,7 @@ name: Daily running bot
 
 on: 
   schedule:
-    - cron: '0 12 * * *'
+    - cron: '0 9 * * *'
 
 jobs: 
   build:
